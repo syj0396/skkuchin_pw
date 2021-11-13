@@ -41,6 +41,8 @@ const RegisterPage = (props) => {
 
     const [pwValid, setPwValid] = useState(false);
 
+    const [pwMatch, setPwMatch] = useState(false);
+
     const [formData, setFormData] = useState({
         username: '',
     //   email_name: '',
@@ -119,6 +121,34 @@ const RegisterPage = (props) => {
         )
     }
 
+    //비밀번호 재입력하는동안 실행되는 함수
+    const onConfirmChange = e => {
+        e.preventDefault();
+        const confirmValue = e.target.value;
+
+        if (password === confirmValue) {
+            setPwMatch(true);
+        }
+        else {
+            setPwMatch(false);
+        }
+        setFormData({ ...formData, [e.target.name]: confirmValue });
+    }
+
+    //재입력한 비밀번호가 일치하지 않으면 오류 메시지 보여줌
+    const renderConfirmCaution = () => {
+        const valid = pwMatch;
+        const caution = "비밀번호가 일치하지 않습니다.";
+        if (valid || re_password === '') {
+            return null;
+        }
+        return (
+            <div className="pwValid_style">{caution}</div>
+        )
+    } 
+    
+    
+
     const registerUser = (e) => {
 
         e.preventDefault();
@@ -131,8 +161,8 @@ const RegisterPage = (props) => {
 
         dispatch(signup(user))
         .then(() => {
-            // 비밀번호 조건 만족했을 경우에만 계정 생성
-            if (pwValid) {
+            // 비밀번호가 조건을 만족하고 re_password와 일치할 경우에만 계정 생성
+            if (pwValid && pwMatch) {
                 setAccountCreated(true);
             }
             
@@ -264,10 +294,11 @@ const RegisterPage = (props) => {
                                     minLength='6'
                                     name='re_password'
                                     value={re_password}
-                                    onChange={e => onChange(e)}
+                                    onChange={e => onConfirmChange(e)}
                                     required
                                 />
                                 <img src={disabledImage} id="pswd2_img1" className="Register-pswdImg" />
+                                {renderConfirmCaution()}
                             </span>
                         </div>
                         {/* NAME */}
