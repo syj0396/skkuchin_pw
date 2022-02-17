@@ -1,226 +1,483 @@
 @media only screen and (max-width: 800px) {
-  /* 1. 전체 페이지 공통 요소 */
-
-  /* 2. 전체 공통 요소는 아니지만, 다른 페이지에서도 쓰이는 요소 */
-  /*뒤로가기 버튼*/
-  .Register-back {
-    width: 10%;
-  }
-
-  .Register-back button {
-    border: 0;
-    background-color: rgba(240, 248, 255, 0);
-    padding: 20px 0px 20px 10px;
-  }
-
-  .Register-back i {
-    font-size: 20px;
-    background-color: rgba(240, 248, 255, 0);
-  }
-
-  /* input box 클릭하면 자동생성되는 border-line 제거 */
-  .Register-box input:focus {
-    outline: none;
-  }
-
-  /* 3. only 이 페이지에서만 쓰이는 요소 */
-
-  .Register-body {
-    margin: 0;
-    height: 100%;
-    background-color: rgba(241, 241, 241, 0.658);
-    font-family: Noto Sans KR, sans-serif;
-  }
-  /* 입력 틀 전체 */
-  #wrapper {
-    position: relative;
-    z-index: 1;
-  }
-
-  #content {
-    position: absolute;
-    left: 50%;
-    transform: translate(-50%);
-    width: 80%;
-  }
-
-  /* 스꾸실 로고 */
-  .Register-logo {
-    text-align: center;
-  }
-  .Register-logo img {
-    width: 80%;
-  }
-
-  /* 타이틀 */
-  #content h3 {
-    margin: 19px 0 8px;
-    font-size: 14px;
+  /* 그리드 */
+  .register_content {
+    margin: 80px 20px 20px;
     font-weight: 700;
   }
 
-  /* input box*/
-  .Register-box {
+  /* 헤더 */
+  .register_header {
+    display: flex;
+    justify-content: space-between;
+    font-size: 18px;
+    box-sizing: border-box;
+    margin-bottom: 35px;
+  }
+
+  /* 각 소제목 */
+  .register_title {
+    width: 100%;
+    margin: 25px auto 0 auto;
+  }
+
+  .register_title h2 {
+    margin: 0 auto;
+    padding-left: 8px;
+    font-size: 12px;
+  }
+
+  /* login ID 박스 */
+  #register_email {
+    margin-top: 10px;
+    display: table;
+    width: 100%;
+    align-items: center;
+  }
+
+  #register_ID {
+    display: table-cell;
+    width: 40%;
+  }
+
+  /* 아이디 중복확인 버튼 */
+  #register_confirm {
+    display: block;
+    height: 21px;
+    box-sizing: border-box;
+    border-radius: 7px;
+    background: #ffcf00;
+    position: relative;
+    margin-top: 7px;
+  }
+
+  #register_confirm button {
+    width: 100%;
+    height: 100%;
+    color: #ffffff;
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-size: 13px;
+  }
+
+  #register_emailtype {
+    display: flex;
+    vertical-align: middle;
+    padding-left: 8px;
+  }
+
+  .register_notice {
+    vertical-align: middle;
+    margin-top: 13px;
+    padding-left: 8px;
+    font-size: 12px;
+    font-weight: 400;
+    color: rgb(0, 0, 0, 0.58);
+  }
+
+  /* 아이디 제외 모든 입력 박스 */
+  .register_text {
+    margin-top: 7px;
+    width: 100%;
+  }
+
+  /* 입력 박스 */
+  .register_int {
+    display: block;
+    position: relative;
+    width: 100%;
+    height: 27px;
+    border: none;
+    background: #fffced;
+    font-size: 17px;
+  }
+
+  .register_box {
     display: block;
     width: 100%;
-    height: 51px;
-    border: solid 1px #dadada;
-    padding: 10px 14px 10px 14px;
+    height: 47px;
+    padding: 10px 15px 8px 15px;
     box-sizing: border-box;
-    background: #fff;
+    border-radius: 15px;
+    background: #fffced;
     position: relative;
   }
 
-  .Register-int {
+  /* 비밀번호 확인 간극 */
+  #register_password {
+    padding-bottom: 10px;
+  }
+
+  .register_passwordCheck {
+    font-size: 11px;
+    margin-top: 8px;
+    padding-left: 15px;
+    font-weight: 400;
+  }
+
+  #register_passwordcheck .register_box {
+    display: flex;
+  }
+
+  /* 비밀번호 확인 체크박스 */
+  #register_passwordcheck .register_box img {
+    width: 19px;
+    height: 19px;
+    margin: auto 0;
+  }
+
+  /* mbti, major 입력 경고 메시지 */
+  .register_mbtiCheck,
+  .register_majorCheck {
+    font-size: 11px;
+    margin-top: 8px;
+    margin-bottom: 8px;
+    padding-left: 15px;
+    font-weight: 400;
+    color: rgb(251, 13, 21);
+  }
+
+  /* 회원가입 다음 버튼 */
+  .register_btn {
+    text-align: center;
+    margin-top: 45px;
+  }
+
+  .register_btn button {
+    font-size: 18px;
+    color: white;
+    width: 100%;
+    height: 54px;
+    border-radius: 15px;
+    border: none;
+    background-color: #ffcf00;
+    font-weight: 700;
+  }
+
+  .register_activate {
+    opacity: 1;
+    cursor: pointer;
+  }
+
+  .register_deactivate {
+    opacity: 0.4;
+    cursor: unset;
+  }
+
+  /* 스꾸친 로고 (no_text) */
+  .certification_logo {
+    text-align: center;
+    margin-top: 20%;
+  }
+
+  /* 제목 */
+  .certification_title {
+    text-align: center;
+  }
+
+  .certification_title h1 {
+    font-weight: 100;
+    margin-top: 5px;
+  }
+
+  /* 설명 */
+  .certification_text {
+    margin-top: 35px;
+    text-align: center;
+    margin-bottom: 10px;
+  }
+
+  .certification_text p {
+    font-size: 14px;
+    font-weight: 400;
+  }
+
+  /* 이메일 ID 입력칸 */
+  #certification_email {
+    margin-top: 25px;
+    display: table;
+    width: 100%;
+    align-items: center;
+  }
+
+  #certification_ID {
+    display: table-cell;
+    width: 40%;
+  }
+
+  .certification_int {
     display: block;
     position: relative;
     width: 100%;
     height: 29px;
     border: none;
-    background: #fff;
-    font-size: 15px;
+    background: #fffced;
+    font-size: 16px;
+    font-weight: 400;
   }
 
-  .Register-box input {
-    font-family: Noto Sans KR, sans-serif;
-  }
-
-  /* 비밀번호 양식 체크-확인 로고 (양식에 안맞거나 틀리면 로고 바뀌게 하려 했는데 실패ㅠ) */
-  .Register-box .int_pass {
-    padding-right: 40px;
-  }
-
-  .Register-box .int_pass_check {
-    padding-right: 40px;
-  }
-
-  .Register-success {
+  .certification_box {
     display: block;
     width: 100%;
     height: 51px;
-    border: 2px solid #2ecc71;
     padding: 10px 14px 10px 14px;
     box-sizing: border-box;
-    background: #fff;
+    border-radius: 0.7rem;
+    background: #fffced;
     position: relative;
   }
 
-  .Register-fail {
-    display: block;
-    width: 100%;
-    height: 51px;
-    border: 2px solid #e74c3c;
-    padding: 10px 14px 10px 14px;
-    box-sizing: border-box;
-    background: #fff;
-    position: relative;
-  }
-
-  .Register-pswdImg {
-    width: 18px;
-    height: 20px;
-    display: inline-block;
-    position: absolute;
-    top: 50%;
-    right: 16px;
-    margin-top: -10px;
-    cursor: pointer;
-  }
-
-  /* 이메일 input + dropdown */
-  #Email_wrap {
-    display: table;
-    width: 100%;
-  }
-
-  #Email_ID {
+  /* 이메일 타입 선택 */
+  #certification_emailtype {
     display: table-cell;
-    width: 147px;
-  }
-
-  #Email_type {
-    display: table-cell;
-    width: 147px;
+    width: 40%;
     vertical-align: middle;
     padding-left: 10px;
   }
 
-  .Register-box select {
+  .certification_sel {
     width: 100%;
     height: 29px;
-    font-size: 15px;
-    background: #fff
-      url(https://static.nid.naver.com/images/join/pc/sel_arr_2x.gif) 100% 50%
-      no-repeat;
+    font-size: 16px;
+    background: #fffced;
     background-size: 20px 8px;
     -webkit-appearance: none;
     display: inline-block;
     text-align: start;
     border: none;
     cursor: default;
-    font-family: Noto Sans KR, sans-serif;
-  }
-
-  /* 가입 버튼 */
-
-  .Register-btn_area {
-    margin: 30px 0 91px;
-  }
-
-  #btnJoin {
-    width: 100%;
-    padding: 21px 0 17px;
-    border: 0;
-    cursor: pointer;
-    color: #fff;
-    background-color: rgb(141, 198, 63);
-    font-size: 20px;
+    font-family: "NN";
     font-weight: 400;
-    font-family: Noto Sans KR, sans-serif;
+    cursor: pointer;
   }
-}
 
-/* 자동완성 기능 관련 css 추가 */
-.autoCompleteText {
-  width: 100%;
-  background-color: #fff;
-  z-index: 11;
-  padding-left: -14px;
-  padding-right: -14px;
-}
+  .certification_checkBox {
+    margin-top: 20px;
+    text-align: center;
+    font-size: 13px;
+    font-weight: 700;
+    display: flex;
+  }
 
-.autoCompleteText input {
-  width: 100%;
-  border: none;
-  box-sizing: border-box;
-}
+  .certification_checkBox .input-text {
+    width: 17px;
+    height: 17px;
+    margin-right: 7px;
+    margin-left: auto;
+  }
 
-.autoCompleteText ul {
-  width: 304px;
-  list-style-type: none;
-  text-align: left;
-  margin: 0;
-  padding-left: 14px;
-  margin-left: -14px;
-  background-color: #fff;
-  border: solid 1px #dadada;
-}
+  .certification_checkBox .checkBox_info {
+    padding-top: 1.5px;
+    margin-right: auto;
+  }
 
-.autoCompletText ul::before {
-  content: "";
-}
+  .certification_checkBox .checkBox_info span {
+    cursor: pointer;
+  }
 
-.autoCompleteText li {
-  padding: 5px 0px;
-  cursor: pointer;
-}
+  .certification_checkBox strong {
+    font-weight: 900;
+  }
 
-.autoCompleteText li:hover {
-  text-decoration: underline;
-  background-color: #c4bebe;
-}
+  /* 이메일 인증 버튼 */
+  .certification_btn {
+    text-align: center;
+    background-color: white;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    margin: 0;
+  }
 
-/* 비밀번호 vaild message */
-.pwValid_style {
-  font-size: 12px;
+  .certification_btn2 {
+    margin: 0 20px 20px;
+  }
+
+  .certification_btn2 button {
+    font-size: 18px;
+    color: white;
+    height: 54px;
+    border-radius: 15px;
+    border: none;
+    background-color: #ffcf00;
+    width: 100%;
+  }
+
+  .certification_activate {
+    opacity: 1;
+    cursor: pointer;
+  }
+
+  .certification_deactivate {
+    opacity: 0.4;
+    cursor: unset;
+  }
+
+  /* 주의사항 */
+  .certification_explain {
+    margin: 20px 0 80px;
+    text-align: center;
+  }
+
+  .certification_explain p {
+    font-size: 12px;
+    color: rgb(0, 0, 0, 0.6);
+    margin-top: 5px;
+    margin-bottom: 5px;
+    font-weight: 700;
+  }
+
+  /* 자동완성 기능 관련 css 추가 */
+  .register_autoCompleteText ul::-webkit-scrollbar {
+    width: 8px;
+    background: transparent;
+    border-radius: 0.5rem;
+  }
+
+  .register_autoCompleteText ul::-webkit-scrollbar-thumb {
+    background: #ffcf00;
+    border-radius: 0.5rem;
+  }
+
+  .register_autoCompleteText ul {
+    list-style-type: none;
+    margin-top: 10px;
+    background: #fffced;
+    border-radius: 15px;
+    overflow-y: scroll;
+    overflow-x: hidden;
+    max-height: 75px;
+    padding-left: 0;
+  }
+
+  .register_autoCompleteText li {
+    padding: 10px 15px;
+    cursor: pointer;
+    font-size: 15px;
+    font-weight: 400;
+  }
+
+  /* 학과선택, 버튼 */
+  /* .register_container {
+    width: 100%;
+    margin: auto;
+  }
+
+  .select-box {
+    position: relative;
+    display: flex;
+    width: 100%;
+    flex-direction: column;
+  }
+
+  .select-box .options-container {
+    background: #fffced;
+    color: #000000;
+    max-height: 0;
+    width: 100%;
+    opacity: 0;
+    transition: all 0.4s;
+    border-radius: 15px;
+    overflow: hidden;
+    order: 1;
+    position: absolute;
+    z-index: 100;
+  }
+
+  .selected {
+    background: #fffced;
+    border-radius: 0.7rem;
+    color: #6e6e6e;
+    position: relative;
+    order: 0;
+    height: 27px;
+  }
+
+  .selected h2 {
+    font-size: 15px;
+    font-weight: 350;
+    margin: 6px 2px;
+  }
+
+  .selected::after {
+    content: "";
+    background-size: contain;
+    background-repeat: no-repeat;
+    position: absolute;
+    height: 100%;
+    width: 100%;
+
+    transition: all 0.4s;
+  }
+
+  .select-box .options-container.active {
+    max-height: 150px;
+    opacity: 1;
+    overflow-y: scroll;
+    margin-top: 104px;
+  }
+
+  .select-box .options-container.active + .selected::after {
+    transform: rotateX(180deg);
+  }
+
+  .select-box .options-container::-webkit-scrollbar {
+    width: 8px;
+    background: #ffce00;
+    border-radius: 0.5rem;
+  }
+
+  .select-box .options-container::-webkit-scrollbar-thumb {
+    background: #000000;
+    border-radius: 0.5rem;
+  }
+
+  .select-box .option,
+  .selected {
+    padding: 8px 15px 8px 15px;
+    cursor: pointer;
+    font-size: 15px;
+    font-weight: 350;
+    margin-top: 5px;
+  }
+
+  .option {
+    background-color: #fffced;
+  }
+
+  .select-box label {
+    cursor: pointer;
+  }
+
+  .select-box .option .select {
+    display: none;
+  } */
+
+  /* Searchbox */
+
+  /* .search-box input {
+    width: 100%;
+    padding: 10px 15px 10px 15px;
+    font-size: 15px;
+    z-index: 3;
+    border: 2px solid #ffce00;
+    opacity: 0;
+    pointer-events: none;
+    transition: all 0.4s;
+    box-sizing: border-box;
+    border-radius: 0.7rem;
+    background: #fff;
+    position: absolute;
+    height: 49px;
+  }
+
+  .search-box input:focus {
+    outline: none;
+  }
+
+  .select-box .options-container.active ~ .search-box input {
+    opacity: 1;
+    pointer-events: auto;
+  } */
 }
